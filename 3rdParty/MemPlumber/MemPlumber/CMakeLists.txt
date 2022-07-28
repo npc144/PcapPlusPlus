@@ -7,7 +7,9 @@ add_library (memplumber
 )
 
 # Build options
-option(COLLECT_STATIC_VAR_DATA        "Collect data also on static variable memory allocation" OFF)
+option(COLLECT_STATIC_VAR_DATA	"Collect data also on static variable memory allocation" OFF)
+option(BUILD_TESTS  "Build tests" OFF)
+option(BUILD_EXAMPLES  "Build examples" OFF)
 
 if(COLLECT_STATIC_VAR_DATA)
     add_definitions(-DCOLLECT_STATIC_VAR_DATA)
@@ -17,8 +19,11 @@ target_include_directories(memplumber PUBLIC
 	${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-enable_testing()
+if(BUILD_TESTS)
+	enable_testing()
+	add_subdirectory(Tests)
+endif()
 
-add_subdirectory(Tests)
-
-add_subdirectory(Examples)
+if(BUILD_EXAMPLES)
+	add_subdirectory(Examples)
+endif()

@@ -81,3 +81,6 @@ Examples/Tutorials/**/*.exe
 #venv
 .venv/**
 venv/**
+
+# CMake
+build/**
