@@ -83,4 +83,7 @@ Examples/Tutorials/**/*.exe
 venv/**
 
 # CMake
-build/**
+build/
+
+# CLion
+.idea/
