@@ -1,3 +1,6 @@
+# CMake
+build/
+
 #Compiled Object files
 *.slo
 *.lo
@@ -79,11 +82,8 @@ Examples/Tutorials/**/Makefile
 Examples/Tutorials/**/*.exe
 
 #venv
-.venv/**
-venv/**
-
-# CMake
-build/
+**/.venv/**
+**/venv/**
 
 # CLion
 .idea/
