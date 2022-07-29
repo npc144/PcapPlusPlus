@@ -58,7 +58,7 @@ target_include_directories(
     $<TARGET_PROPERTY:light_pcapng,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
-target_link_libraries(Pcap++ PUBLIC Common++ Packet++)
+target_link_libraries(Pcap++ PUBLIC Common++ Packet++ PCAP::PCAP Threads::Threads)
 
 install(
     TARGETS Pcap++

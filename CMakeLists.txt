@@ -16,6 +16,9 @@ project(
 )
 set(CMAKE_PROJECT_HOMEPAGE_URL "https://pcapplusplus.github.io/")
 
+# Required Packages
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
+
 # Build options
 option(PCAPP_BUILD_TESTS "Build Tests" ON)
 
@@ -48,6 +51,10 @@ endif()
 if(TARGET_COMPILER_CLANG OR TARGET_COMPILER_GCC)
     add_compile_options(-Wall)
 endif()
+
+# Find libpcap
+find_package(PCAP)
+find_package(Threads)
 
 add_subdirectory(3rdParty)
 add_subdirectory(Common++)
