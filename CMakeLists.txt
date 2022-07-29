@@ -16,6 +16,9 @@ project(
 )
 set(CMAKE_PROJECT_HOMEPAGE_URL "https://pcapplusplus.github.io/")
 
+# Build options
+option(PCAPP_BUILD_TESTS "Build Tests" ON)
+
 # Install dirs
 if (NOT CMAKE_INSTALL_LIBDIR)
     set(CMAKE_INSTALL_LIBDIR lib)
@@ -46,10 +49,11 @@ if(TARGET_COMPILER_CLANG OR TARGET_COMPILER_GCC)
     add_compile_options(-Wall)
 endif()
 
-enable_testing()
-
 add_subdirectory(3rdParty)
 add_subdirectory(Common++)
 add_subdirectory(Packet++)
 add_subdirectory(Pcap++)
-add_subdirectory(Tests)
+if(PCAPP_BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(Tests)
+endif()
